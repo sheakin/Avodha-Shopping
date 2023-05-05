@@ -1,0 +1,46 @@
+{% load static %}
+
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body id="top">
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <h1><a href="/">Avodha Shopping</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+          
+          <li class="active"><a href="{% url 'cartDetails' %}"&nbsp;<i class="fa fa-shopping-cart" style="font-size:14px;color:white"></i>&nbsp;{{itc}}</a></li>
+          <li><a class="active" href="#">logout</a></li>
+          <li><a class="active" href="#">login</a></li>
+          <li><a class="active" href="#">register</a></li>
+
+            <ul>
+              <li><a href="#">Level 2</a></li>
+              <li><a class="drop" href="#">Level 2 + Drop</a></li>
+               
+              </li>
+           
+         
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+</div>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
