@@ -123,6 +123,7 @@ span.price {
       <p>{{i.prodt.name}}</a> <span class="price">${{i.total}} <br><a href="{% url 'addcart' i.prodt.id %}"><i class="fa fa-plus" style="font-size:10px"></i></a>&nbsp;&nbsp;{{i.quan}}&nbsp;&nbsp; <a href="{% url 'cart_decrement' i.prodt.id %}"> <i class="fa fa-minus" style="font-size:10px"></i></a></span></p>
       <p>{{i.prodt.price}} x 1</p>
       <p>Qty: {{i.quan}}</p>
+      <p>{{i.prodt.desc}}</p>
       <hr>
     </div>
   </div>

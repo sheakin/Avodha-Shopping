@@ -21,11 +21,12 @@
         <!-- ################################################################################################ -->
         <ul class="clear">
           <li class="active"><a href="/">Home</a></li>
-          
           <li class="active"><a href="{% url 'cartDetails' %}"&nbsp;<i class="fa fa-shopping-cart" style="font-size:14px;color:white"></i>&nbsp;{{itc}}</a></li>
-          <li><a class="active" href="#">logout</a></li>
-          <li><a class="active" href="#">login</a></li>
-          <li><a class="active" href="#">register</a></li>
+          <li><a class="active" href="accounts/logout"></a></li>
+          <a href="{% url 'logout' %}">Logout</a> 
+          <li><a class="active" href="{% url 'login' %}">login</a></li>
+          <li><a class="active" href="{% url 'register' %}">register</a></li>
+
 
             <ul>
               <li><a href="#">Level 2</a></li>

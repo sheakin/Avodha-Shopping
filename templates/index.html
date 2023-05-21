@@ -93,7 +93,20 @@
     </div>
    </div>
         <!-- ################################################################################################ -->
-      
+     
+<div class="dropdown">
+  <button class="dropbtn">Filter</button>
+  <div class="dropdown-content">
+  <a href="/">All</a>
+  {% for i in ct %}
+  <a href={{i.get_url}}>{{i.name}}</a><br>
+  {% endfor %}
+
+  </div>
+</div>
+
+
+        
     </div> 
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
@@ -109,17 +122,6 @@
   <!-- ################################################################################################ -->
 </div>
 
-
-<div class="dropdown">
-  <button class="dropbtn">Filter</button>
-  <div class="dropdown-content">
-  <a href="/">All</a>
-  {% for i in ct %}
-  <a href={{i.get_url}}>{{i.name}}</a><br>
-  {% endfor %}
-
-  </div>
-</div>
 
  
 <div class="wrapper row3">
