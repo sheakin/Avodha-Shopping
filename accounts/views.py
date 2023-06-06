@@ -7,31 +7,29 @@ from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
-        # Retrieve form data
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
         
-        if password == confirm_password:
-            if User.objects.filter(username=username).exists():
-                messages.error(request, 'Username taken')
-                return redirect('register')
-            elif User.objects.filter(email=email).exists():
-                messages.error(request, 'Email taken')
-                return redirect('index')
-            else:
-    # Create a new user
-                 user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username,email=email,password=password)
-                 user.save();
-                 print("user created")
-                 messages.success(request, 'Registration successful. Please log in.')
-                 return redirect('login')  # Redirect to the login page
-        else:
-            messages.error(request, 'Passwords do not match')
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Username taken')
             return redirect('register')
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, 'Email taken')
+            return redirect('register')  
+        else:
+            user = User.objects.create_user(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password
+            )
+            user.save()
+            messages.success(request, 'Registration successful. Please log in.')
+            return redirect('login') 
     else:
         return render(request, 'register.html')
 

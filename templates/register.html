@@ -10,10 +10,10 @@ body{
   background-color: pink;  
 }  
 .container {  
-    padding: 50px;  
+  padding: 50px;  
   background-color: lightblue;  
 }  
-  
+
 input[type=text], input[type=password], textarea {  
   width: 100%;  
   padding: 15px;  
@@ -22,17 +22,21 @@ input[type=text], input[type=password], textarea {
   border: none;  
   background: #f1f1f1;  
 }  
+
 input[type=text]:focus, input[type=password]:focus {  
   background-color: orange;  
   outline: none;  
 }  
- div {  
-            padding: 10px 0;  
-         }  
+
+div {  
+  padding: 10px 0;  
+}  
+
 hr {  
   border: 1px solid #f1f1f1;  
   margin-bottom: 25px;  
 }  
+
 .registerbtn {  
   background-color: #4CAF50;  
   color: white;  
@@ -43,35 +47,44 @@ hr {
   width: 100%;  
   opacity: 0.9;  
 }  
+
 .registerbtn:hover {  
   opacity: 1;  
 }  
 </style>  
 </head>  
 <body>  
-<form>  
+<form method="post">  <!-- Added method="post" attribute -->
+  {% csrf_token %}  
   <div class="container">  
-  <center>  <h1> Register</h1> </center>  
-  <hr>  
-  <label> Firstname </label>   
-<input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
-<label> Lastname: </label>    
-<input type="text" name="lastname" placeholder="Lastname" size="15"required />   
-<label> usernmae: </label>    
-<input type="text" name="lastname" placeholder="Lastname" size="15"required />   
+    <center><h1>Register</h1></center>  
+    <hr>  
+    <label for="first_name">First name:</label>   
+    <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" size="15" required />   
 
-<div>  
+    <label for="last_name">Last name:</label>    
+    <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" size="15" required />   
 
- 
- <label for="email"><b>Email</b></label>  
- <input type="text" placeholder="Enter Email" name="email" required>  
-  
-    <label for="psw"><b>Password</b></label>  
-    <input type="password" placeholder="Enter Password" name="psw" required>  
-  
-    <label for="psw-repeat"><b>Re-type Password</b></label>  
-    <input type="password" placeholder="Retype Password" name="psw-repeat" required>  
+    <label for="username">Username:</label>    
+    <input type="text" id="username" name="username" placeholder="Username" size="15" required />   
+
+    <div>  
+      <label for="email">Email:</label>  
+      <input type="text" id="email" name="email" placeholder="Enter your email" required>  
+    </div>
+
+    <div>
+      <label for="password">Password:</label>  
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>  
+    </div>
+
+    <div>
+      <label for="confirm_password">Confirm Password:</label>  
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>  
+    </div>
+
     <button type="submit" class="registerbtn">Register</button>    
+  </div>
 </form>  
 </body>  
 </html>  
